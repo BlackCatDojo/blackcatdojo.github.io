@@ -664,21 +664,21 @@ placeholder="Tell us what you want on the front and back, colors, wording, theme
 
 <div class="field">
 <label>Name</label>
-<input type="text" id="customerName" placeholder="Your name">
+<input type="text" id="customerName" name="Name" placeholder="Your name">
 </div>
 
 <div class="field">
 <label>Email</label>
-<input type="email" id="customerEmail" placeholder="you@example.com">
+<input type="email" id="customerEmail" name="Email"  placeholder="you@example.com">
 </div>
 
 <div class="field">
 <label>Phone</label>
-<input type="tel" id="customerPhone" placeholder="Phone number">
+<input type="tel" id="customerPhone" name="Phone" placeholder="Phone number">
 </div>
 <div class="field">
   <label>Organization / Department</label>
-  <input type="text" id="customerOrganization" placeholder="Agency, department, business, unit, etc.">
+  <input type="text" id="customerOrganization" name="Organization" placeholder="Agency, department, business, unit, etc.">
 </div>
 </div>
 
@@ -688,7 +688,14 @@ placeholder="Tell us what you want on the front and back, colors, wording, theme
 <div class="summary">
 
 <h2>Your Coin Build</h2>
-
+<input type="hidden" name="Shape" id="formShape">
+<input type="hidden" name="Size" id="formSize">
+<input type="hidden" name="Metal" id="formMetal">
+<input type="hidden" name="Edge" id="formEdge">
+<input type="hidden" name="Artwork" id="formArtwork">
+<input type="hidden" name="Color" id="formColor">
+<input type="hidden" name="Sides" id="formSides">
+<input type="hidden" name="Quantity" id="formQuantity">
 <div class="summary-row">
 <span>Shape</span>
 <strong id="sumShape">Round</strong>
@@ -768,6 +775,29 @@ function updateSummary(){
  document.getElementById("sumSides").textContent=selected("sides");
  document.getElementById("sumQuantity").textContent=
  document.getElementById("quantity").value;
+  document.getElementById("formShape").value =
+  document.getElementById("sumShape").textContent;
+
+document.getElementById("formSize").value =
+  document.getElementById("sumSize").textContent;
+
+document.getElementById("formMetal").value =
+  document.getElementById("sumMetal").textContent;
+
+document.getElementById("formEdge").value =
+  document.getElementById("sumEdge").textContent;
+
+document.getElementById("formArtwork").value =
+  document.getElementById("sumRelief").textContent;
+
+document.getElementById("formColor").value =
+  document.getElementById("sumColor").textContent;
+
+document.getElementById("formSides").value =
+  document.getElementById("sumSides").textContent;
+
+document.getElementById("formQuantity").value =
+  document.getElementById("sumQuantity").textContent;
 
 }
 

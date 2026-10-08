@@ -774,18 +774,42 @@ document.getElementById("quantity").addEventListener("change",updateSummary);
 
 function quoteMessage(){
 
- const name=document.getElementById("customerName").value;
- const email=document.getElementById("customerEmail").value;
+  const name = document.getElementById("customerName").value;
+  const email = document.getElementById("customerEmail").value;
+  const phone = document.getElementById("customerPhone").value;
+  const organization = document.getElementById("customerOrganization")?.value || "";
+  const description = document.getElementById("description")?.value || "";
 
- if(!name || !email){
-   alert("Please enter your name and email before requesting a quote.");
-   return;
- }
+  if(!name || !email){
+    alert("Please enter your name and email before requesting a quote.");
+    return;
+  }
 
- alert(
- "Thanks, "+name+"! Your Black Cat Dojo coin build is ready for quote submission."
- );
+  updateSummary();
 
+  const message =
+`BLACK CAT DOJO - NEW QUOTE REQUEST
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Organization / Department: ${organization}
+
+COIN BUILD
+Shape: ${document.getElementById("sumShape").textContent}
+Size: ${document.getElementById("sumSize").textContent}
+Metal: ${document.getElementById("sumMetal").textContent}
+Edge: ${document.getElementById("sumEdge").textContent}
+Artwork: ${document.getElementById("sumRelief").textContent}
+Color: ${document.getElementById("sumColor").textContent}
+Sides: ${document.getElementById("sumSides").textContent}
+Quantity: ${document.getElementById("sumQuantity").textContent}
+
+Design Description:
+${description}`;
+
+  window.location.href =
+    "sms:2057290285,2057992141&body=" + encodeURIComponent(message);
 }
 
 updateSummary();

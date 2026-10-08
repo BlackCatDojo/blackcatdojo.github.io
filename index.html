@@ -631,7 +631,7 @@ Metal Only
 
 <!-- ARTWORK -->
 
-<div class="step">
+<form class="step" action="https://formsubmit.co/blackcatdojo@gmail.com" method="POST" enctype="multipart/form-data">
 
 <div class="step-number">STEP 09</div>
 <h2>Upload Your Artwork</h2>
@@ -642,7 +642,7 @@ Metal Only
 Upload your logo, badge, sketch, photo or reference artwork.
 </p>
 
-<input type="file" accept="image/*,.pdf" multiple>
+<input type="file" id="artworkFiles" name="attachments" accept="image/*,.pdf" multiple>
 
 </div>
 
@@ -729,7 +729,7 @@ placeholder="Tell us what you want on the front and back, colors, wording, theme
 <strong id="sumQuantity">100</strong>
 </div>
 
-<button class="submit" type="button" onclick="quoteMessage()">
+<button class="submit" type="submit">
 REQUEST YOUR QUOTE
 </button>
 
@@ -737,7 +737,7 @@ REQUEST YOUR QUOTE
 Submitting a build does not place an order.
 Final pricing is provided after artwork and specifications are reviewed.
 </p>
-
+</form>
 </div>
 
 </div>
@@ -746,7 +746,7 @@ Final pricing is provided after artwork and specifications are reviewed.
 <footer>
 <strong>BLACK CAT DOJO</strong><br><br>
 Custom Challenge Coins & More<br><br>
-© 2026 Black Cat Dojo
+© 2025 Black Cat Dojo
 </footer>
 
 
@@ -813,8 +813,7 @@ Quantity: ${document.getElementById("sumQuantity").textContent}
 Design Description:
 ${description}`;
 
-  window.location.href =
-    "sms:2057290285,2057992141&body=" + encodeURIComponent(message);
+  
 }
 
 updateSummary();

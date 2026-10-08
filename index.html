@@ -3,184 +3,297 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Black Cat Dojo | Custom Challenge Coins</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --gold:#d6aa4d;
+  --gold2:#8d6424;
+  --black:#070707;
+  --card:#141414;
+  --line:#303030;
+  --muted:#aaa;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #090909;
-    color: white;
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--black);
+  color:#fff;
 }
 
-header {
-    background: #000;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid #c69b45;
+header{
+  background:#000;
+  border-bottom:2px solid var(--gold);
+  padding:20px;
+  text-align:center;
 }
 
-.logo {
-    font-size: 30px;
-    font-weight: 900;
-    letter-spacing: 3px;
+.logo{
+  font-size:29px;
+  font-weight:900;
+  letter-spacing:4px;
 }
 
-.gold {
-    color: #d5ad58;
+.gold{color:var(--gold)}
+
+.tagline{
+  color:#aaa;
+  letter-spacing:2px;
+  font-size:12px;
+  margin-top:7px;
 }
 
-.tagline {
-    margin-top: 7px;
-    color: #aaa;
-    font-size: 13px;
-    letter-spacing: 2px;
+.hero{
+  min-height:470px;
+  padding:65px 22px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:
+  radial-gradient(circle at center,#292014 0%,#101010 48%,#050505 100%);
 }
 
-.hero {
-    min-height: 520px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 20px;
-    background:
-        radial-gradient(circle at center, #272014 0%, #111 45%, #050505 100%);
+.hero h1{
+  font-size:46px;
+  line-height:1.02;
+  margin-bottom:22px;
 }
 
-.hero h1 {
-    font-size: 48px;
-    line-height: 1;
-    margin-bottom: 20px;
+.hero p{
+  max-width:600px;
+  margin:auto;
+  color:#bbb;
+  font-size:17px;
+  line-height:1.6;
 }
 
-.hero p {
-    max-width: 600px;
-    margin: auto;
-    color: #bbb;
-    font-size: 18px;
-    line-height: 1.6;
+.btn{
+  display:inline-block;
+  margin-top:28px;
+  padding:16px 27px;
+  background:linear-gradient(135deg,#e3bd63,#946a28);
+  color:#050505;
+  text-decoration:none;
+  font-weight:900;
+  border-radius:7px;
 }
 
-.button {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 16px 28px;
-    background: linear-gradient(135deg, #e1bd68, #8c6425);
-    color: #090909;
-    text-decoration: none;
-    font-weight: 900;
-    border-radius: 5px;
+section{
+  padding:60px 18px;
 }
 
-.section {
-    padding: 65px 20px;
-    max-width: 1100px;
-    margin: auto;
-    text-align: center;
+.section-title{
+  text-align:center;
+  font-size:34px;
+  margin-bottom:10px;
 }
 
-.section h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
+.section-subtitle{
+  text-align:center;
+  color:#999;
+  margin-bottom:38px;
 }
 
-.section-intro {
-    color: #999;
-    margin-bottom: 35px;
+.builder{
+  max-width:950px;
+  margin:auto;
 }
 
-.options {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+.step{
+  background:#121212;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px 18px;
+  margin-bottom:18px;
 }
 
-.card {
-    background: #151515;
-    border: 1px solid #333;
-    padding: 30px 20px;
-    border-radius: 10px;
+.step-number{
+  color:var(--gold);
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
 }
 
-.card h3 {
-    color: #d5ad58;
-    margin-bottom: 10px;
+.step h2{
+  margin:7px 0 18px;
+  font-size:23px;
 }
 
-.card p {
-    color: #aaa;
-    line-height: 1.5;
+.choice-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
 }
 
-.builder {
-    background: #111;
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333;
+.choice{
+  position:relative;
 }
 
-.builder-box {
-    max-width: 700px;
-    margin: 30px auto 0;
-    background: #181818;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: left;
+.choice input{
+  position:absolute;
+  opacity:0;
 }
 
-label {
-    display: block;
-    margin: 18px 0 7px;
-    font-weight: bold;
+.choice label{
+  min-height:72px;
+  border:1px solid #3b3b3b;
+  background:#191919;
+  border-radius:10px;
+  padding:15px 10px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  cursor:pointer;
+  font-weight:bold;
 }
 
-select, input, textarea {
-    width: 100%;
-    padding: 14px;
-    border-radius: 6px;
-    border: 1px solid #444;
-    background: #0b0b0b;
-    color: white;
-    font-size: 16px;
+.choice small{
+  display:block;
+  color:#888;
+  margin-top:5px;
+  font-weight:normal;
 }
 
-textarea {
-    min-height: 120px;
+.choice input:checked + label{
+  border:2px solid var(--gold);
+  background:#241d11;
+  color:#f2cf7b;
 }
 
-.quote-button {
-    width: 100%;
-    margin-top: 25px;
-    padding: 16px;
-    border: 0;
-    border-radius: 6px;
-    background: linear-gradient(135deg, #e1bd68, #8c6425);
-    color: #080808;
-    font-size: 17px;
-    font-weight: 900;
+.finish-dot{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  margin-bottom:8px;
+  border:2px solid #555;
 }
 
-footer {
-    text-align: center;
-    padding: 35px 20px;
-    color: #777;
-    background: #050505;
+.gold-dot{
+  background:linear-gradient(135deg,#fff0a5,#9d6715);
 }
 
-@media (max-width: 700px) {
-    .hero h1 {
-        font-size: 38px;
-    }
+.silver-dot{
+  background:linear-gradient(135deg,#fff,#777);
+}
 
-    .options {
-        grid-template-columns: 1fr;
-    }
+.brass-dot{
+  background:linear-gradient(135deg,#d8a84d,#62400e);
+}
+
+.black-dot{
+  background:linear-gradient(135deg,#555,#050505);
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=number],
+textarea,
+select{
+  width:100%;
+  background:#090909;
+  border:1px solid #444;
+  border-radius:8px;
+  color:#fff;
+  padding:14px;
+  margin-top:7px;
+  font-size:16px;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.field{
+  margin-bottom:16px;
+}
+
+.field label{
+  font-weight:bold;
+}
+
+.upload{
+  border:2px dashed #555;
+  border-radius:10px;
+  padding:25px 15px;
+  text-align:center;
+  color:#aaa;
+}
+
+.upload input{
+  margin-top:15px;
+  max-width:100%;
+}
+
+.summary{
+  background:linear-gradient(145deg,#17130c,#101010);
+  border:1px solid #6f5424;
+  border-radius:14px;
+  padding:24px;
+}
+
+.summary h2{
+  color:var(--gold);
+  margin-bottom:17px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:10px 0;
+  border-bottom:1px solid #292929;
+}
+
+.summary-row span:first-child{
+  color:#888;
+}
+
+.submit{
+  width:100%;
+  border:0;
+  margin-top:22px;
+  padding:18px;
+  border-radius:8px;
+  background:linear-gradient(135deg,#e2bb61,#8c6221);
+  color:#050505;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.notice{
+  color:#777;
+  font-size:12px;
+  line-height:1.5;
+  text-align:center;
+  margin-top:13px;
+}
+
+footer{
+  padding:40px 20px;
+  background:#020202;
+  text-align:center;
+  color:#777;
+  border-top:1px solid #222;
+}
+
+@media(min-width:700px){
+  .choice-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .hero h1{
+    font-size:62px;
+  }
 }
 </style>
 </head>
@@ -188,137 +301,425 @@ footer {
 <body>
 
 <header>
-    <div class="logo">
-        BLACK CAT <span class="gold">DOJO</span>
-    </div>
-    <div class="tagline">
-        CUSTOM CHALLENGE COINS & MORE
-    </div>
+  <div class="logo">
+    BLACK CAT <span class="gold">DOJO</span>
+  </div>
+  <div class="tagline">
+    CUSTOM CHALLENGE COINS & MORE
+  </div>
 </header>
 
-<section class="hero">
-    <div>
-        <h1>YOUR IDEA.<br>
-        <span class="gold">FORGED INTO METAL.</span></h1>
+<div class="hero">
+  <div>
+    <h1>
+      YOUR IDEA.<br>
+      <span class="gold">FORGED INTO METAL.</span>
+    </h1>
 
-        <p>
-            Custom challenge coins built around your vision.
-            Choose your size, shape, finish, colors and details
-            to create something that's truly yours.
-        </p>
-
-        <a href="#builder" class="button">
-            BUILD YOUR COIN
-        </a>
-    </div>
-</section>
-
-<section class="section">
-
-    <h2>Built Your Way.</h2>
-
-    <p class="section-intro">
-        From the first sketch to the finished coin.
+    <p>
+      Design a custom challenge coin built around your vision.
+      Choose the shape, size, metal, artwork style and finish.
     </p>
 
-    <div class="options">
+    <a class="btn" href="#builder">BUILD YOUR COIN</a>
+  </div>
+</div>
 
-        <div class="card">
-            <h3>Custom Shapes</h3>
-            <p>
-                Round, badge, shield, square or completely custom.
-            </p>
-        </div>
+<section id="builder">
 
-        <div class="card">
-            <h3>Premium Metal</h3>
-            <p>
-                Gold, brass, silver, antique and dark metal finishes.
-            </p>
-        </div>
+<h1 class="section-title">Build Your Coin</h1>
 
-        <div class="card">
-            <h3>Raised 3D Detail</h3>
-            <p>
-                Deep relief, dimensional artwork and painted enamel.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="builder" id="builder">
-
-<div class="section">
-
-<h2>Build Your Coin</h2>
-
-<p class="section-intro">
-Start creating your custom Black Cat Dojo coin.
+<p class="section-subtitle">
+Choose your options below to start your custom design.
 </p>
 
-<div class="builder-box">
+<div class="builder">
 
-<label>Coin Shape</label>
-<select>
-    <option>Round</option>
-    <option>Badge / Shield</option>
-    <option>Square</option>
-    <option>Custom Shape</option>
+<!-- SHAPE -->
+
+<div class="step">
+
+<div class="step-number">STEP 01</div>
+<h2>Choose Your Shape</h2>
+
+<div class="choice-grid">
+
+<div class="choice">
+<input type="radio" name="shape" id="round" value="Round" checked>
+<label for="round">
+⭕
+<small>Round</small>
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="shape" id="shield" value="Shield / Badge">
+<label for="shield">
+🛡️
+<small>Shield / Badge</small>
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="shape" id="square" value="Square">
+<label for="square">
+⬛
+<small>Square</small>
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="shape" id="custom" value="Custom Shape">
+<label for="custom">
+✦
+<small>Custom Shape</small>
+</label>
+</div>
+
+</div>
+</div>
+
+
+<!-- SIZE -->
+
+<div class="step">
+
+<div class="step-number">STEP 02</div>
+<h2>Select Coin Size</h2>
+
+<div class="choice-grid">
+
+<div class="choice">
+<input type="radio" name="size" id="s175" value='1.75"'>
+<label for="s175">1.75"</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="size" id="s2" value='2"'>
+<label for="s2">2"</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="size" id="s25" value='2.5"' checked>
+<label for="s25">2.5"</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="size" id="s3" value='3"'>
+<label for="s3">3"</label>
+</div>
+
+</div>
+</div>
+
+
+<!-- METAL -->
+
+<div class="step">
+
+<div class="step-number">STEP 03</div>
+<h2>Choose Metal Finish</h2>
+
+<div class="choice-grid">
+
+<div class="choice">
+<input type="radio" name="metal" id="gold" value="Shiny Gold">
+<label for="gold">
+<span class="finish-dot gold-dot"></span>
+Shiny Gold
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="metal" id="brass" value="Antique Brass" checked>
+<label for="brass">
+<span class="finish-dot brass-dot"></span>
+Antique Brass
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="metal" id="silver" value="Silver">
+<label for="silver">
+<span class="finish-dot silver-dot"></span>
+Silver
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="metal" id="black" value="Black Nickel">
+<label for="black">
+<span class="finish-dot black-dot"></span>
+Black Nickel
+</label>
+</div>
+
+</div>
+</div>
+
+
+<!-- EDGE -->
+
+<div class="step">
+
+<div class="step-number">STEP 04</div>
+<h2>Choose Your Edge</h2>
+
+<div class="choice-grid">
+
+<div class="choice">
+<input type="radio" name="edge" id="standard" value="Standard" checked>
+<label for="standard">Standard</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="edge" id="rope" value="Rope">
+<label for="rope">Rope</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="edge" id="diamond" value="Diamond Cut">
+<label for="diamond">Diamond Cut</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="edge" id="customedge" value="Custom Edge">
+<label for="customedge">Custom Edge</label>
+</div>
+
+</div>
+</div>
+
+
+<!-- RELIEF -->
+
+<div class="step">
+
+<div class="step-number">STEP 05</div>
+<h2>Artwork Style</h2>
+
+<div class="choice-grid">
+
+<div class="choice">
+<input type="radio" name="relief" id="2d" value="2D">
+<label for="2d">
+2D
+<small>Traditional raised metal</small>
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="relief" id="3d" value="3D Raised Relief" checked>
+<label for="3d">
+3D
+<small>Sculpted dimensional detail</small>
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="relief" id="mixed" value="2D + 3D">
+<label for="mixed">
+2D + 3D
+<small>Combination design</small>
+</label>
+</div>
+
+</div>
+</div>
+
+
+<!-- COLOR -->
+
+<div class="step">
+
+<div class="step-number">STEP 06</div>
+<h2>Color & Finish</h2>
+
+<div class="choice-grid">
+
+<div class="choice">
+<input type="radio" name="color" id="enamel" value="Painted Enamel" checked>
+<label for="enamel">
+Painted Enamel
+<small>Premium filled color</small>
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="color" id="uv" value="UV Printed Details">
+<label for="uv">
+UV Details
+<small>For complex artwork</small>
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="color" id="glow" value="Glow">
+<label for="glow">
+Glow
+<small>Glow accents</small>
+</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="color" id="metalonly" value="Metal Only">
+<label for="metalonly">
+Metal Only
+<small>No added color</small>
+</label>
+</div>
+
+</div>
+</div>
+
+
+<!-- SIDES -->
+
+<div class="step">
+
+<div class="step-number">STEP 07</div>
+<h2>Coin Sides</h2>
+
+<div class="choice-grid">
+
+<div class="choice">
+<input type="radio" name="sides" id="front" value="Front Only">
+<label for="front">Front Only</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="sides" id="both" value="Front + Back" checked>
+<label for="both">Front + Back</label>
+</div>
+
+</div>
+</div>
+
+
+<!-- QUANTITY -->
+
+<div class="step">
+
+<div class="step-number">STEP 08</div>
+<h2>Quantity</h2>
+
+<select id="quantity">
+<option>25</option>
+<option>50</option>
+<option selected>100</option>
+<option>250</option>
+<option>500</option>
+<option>1000+</option>
 </select>
 
-<label>Coin Size</label>
-<select>
-    <option>1.5 inches</option>
-    <option>1.75 inches</option>
-    <option>2 inches</option>
-    <option>2.5 inches</option>
-    <option>3 inches</option>
-</select>
+</div>
 
-<label>Metal Finish</label>
-<select>
-    <option>Shiny Gold</option>
-    <option>Antique Gold</option>
-    <option>Shiny Silver</option>
-    <option>Antique Silver</option>
-    <option>Black Nickel</option>
-    <option>Antique Brass</option>
-</select>
 
-<label>Artwork Style</label>
-<select>
-    <option>2D</option>
-    <option>3D Raised Relief</option>
-    <option>Combination 2D + 3D</option>
-</select>
+<!-- ARTWORK -->
 
-<label>Color Style</label>
-<select>
-    <option>Painted Enamel</option>
-    <option>Metal Only</option>
-    <option>Enamel + Printed Details</option>
-</select>
+<div class="step">
 
-<label>Quantity</label>
-<select>
-    <option>25</option>
-    <option>50</option>
-    <option>100</option>
-    <option>250</option>
-    <option>500+</option>
-</select>
+<div class="step-number">STEP 09</div>
+<h2>Upload Your Artwork</h2>
 
-<label>Upload Your Artwork</label>
-<input type="file">
+<div class="upload">
 
-<label>Tell Us About Your Coin</label>
-<textarea placeholder="Describe your idea, colors, text, design and anything else you want on your coin..."></textarea>
+<p>
+Upload your logo, badge, sketch, photo or reference artwork.
+</p>
 
-<button class="quote-button">
-REQUEST A QUOTE
+<input type="file" accept="image/*,.pdf">
+
+</div>
+
+<div class="field" style="margin-top:20px">
+<label>Describe Your Coin</label>
+<textarea id="description"
+placeholder="Tell us what you want on the front and back, colors, wording, theme and any special details..."></textarea>
+</div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div class="step">
+
+<div class="step-number">STEP 10</div>
+<h2>Your Information</h2>
+
+<div class="field">
+<label>Name</label>
+<input type="text" id="customerName" placeholder="Your name">
+</div>
+
+<div class="field">
+<label>Email</label>
+<input type="email" id="customerEmail" placeholder="you@example.com">
+</div>
+
+<div class="field">
+<label>Phone</label>
+<input type="tel" id="customerPhone" placeholder="Phone number">
+</div>
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="summary">
+
+<h2>Your Coin Build</h2>
+
+<div class="summary-row">
+<span>Shape</span>
+<strong id="sumShape">Round</strong>
+</div>
+
+<div class="summary-row">
+<span>Size</span>
+<strong id="sumSize">2.5"</strong>
+</div>
+
+<div class="summary-row">
+<span>Metal</span>
+<strong id="sumMetal">Antique Brass</strong>
+</div>
+
+<div class="summary-row">
+<span>Edge</span>
+<strong id="sumEdge">Standard</strong>
+</div>
+
+<div class="summary-row">
+<span>Artwork</span>
+<strong id="sumRelief">3D Raised Relief</strong>
+</div>
+
+<div class="summary-row">
+<span>Color</span>
+<strong id="sumColor">Painted Enamel</strong>
+</div>
+
+<div class="summary-row">
+<span>Sides</span>
+<strong id="sumSides">Front + Back</strong>
+</div>
+
+<div class="summary-row">
+<span>Quantity</span>
+<strong id="sumQuantity">100</strong>
+</div>
+
+<button class="submit" type="button" onclick="quoteMessage()">
+REQUEST YOUR QUOTE
 </button>
+
+<p class="notice">
+Submitting a build does not place an order.
+Final pricing is provided after artwork and specifications are reviewed.
+</p>
 
 </div>
 
@@ -326,8 +727,58 @@ REQUEST A QUOTE
 </section>
 
 <footer>
-    © 2026 Black Cat Dojo • Custom Challenge Coins & More
+<strong>BLACK CAT DOJO</strong><br><br>
+Custom Challenge Coins & More<br><br>
+© 2026 Black Cat Dojo
 </footer>
+
+
+<script>
+
+function selected(name){
+ const item=document.querySelector('input[name="'+name+'"]:checked');
+ return item ? item.value : "";
+}
+
+function updateSummary(){
+
+ document.getElementById("sumShape").textContent=selected("shape");
+ document.getElementById("sumSize").textContent=selected("size");
+ document.getElementById("sumMetal").textContent=selected("metal");
+ document.getElementById("sumEdge").textContent=selected("edge");
+ document.getElementById("sumRelief").textContent=selected("relief");
+ document.getElementById("sumColor").textContent=selected("color");
+ document.getElementById("sumSides").textContent=selected("sides");
+ document.getElementById("sumQuantity").textContent=
+ document.getElementById("quantity").value;
+
+}
+
+document.querySelectorAll('input[type="radio"]').forEach(function(item){
+ item.addEventListener("change",updateSummary);
+});
+
+document.getElementById("quantity").addEventListener("change",updateSummary);
+
+function quoteMessage(){
+
+ const name=document.getElementById("customerName").value;
+ const email=document.getElementById("customerEmail").value;
+
+ if(!name || !email){
+   alert("Please enter your name and email before requesting a quote.");
+   return;
+ }
+
+ alert(
+ "Thanks, "+name+"! Your Black Cat Dojo coin build is ready for quote submission."
+ );
+
+}
+
+updateSummary();
+
+</script>
 
 </body>
 </html>

@@ -425,7 +425,48 @@ Choose your options below to start your custom design.
 
 </div>
 </div>
+<!-- THICKNESS -->
 
+<div class="step">
+
+<div class="step-number">STEP 03</div>
+<h2>Select Coin Thickness</h2>
+
+<div class="choice-grid">
+
+<div class="choice">
+<input type="radio" name="thickness" id="t3" value="3mm" checked>
+<label for="t3">3mm</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="thickness" id="t35" value="3.5mm">
+<label for="t35">3.5mm</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="thickness" id="t4" value="4mm">
+<label for="t4">4mm</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="thickness" id="t5" value="5mm">
+<label for="t5">5mm</label>
+</div>
+
+<div class="choice">
+<input type="radio" name="thickness" id="tCustom" value="Custom">
+<label for="tCustom">Custom</label>
+</div>
+
+</div>
+
+<div class="field" style="margin-top:20px">
+<label>Custom Thickness</label>
+<input type="text" id="customThickness" placeholder="Example: 4.5mm">
+</div>
+
+</div>
 
 <!-- METAL -->
 
@@ -690,6 +731,7 @@ placeholder="Tell us what you want on the front and back, colors, wording, theme
 <h2>Your Coin Build</h2>
 <input type="hidden" name="Shape" id="formShape">
 <input type="hidden" name="Size" id="formSize">
+<input type="hidden" name="Thickness" id="formThickness">
 <input type="hidden" name="Metal" id="formMetal">
 <input type="hidden" name="Edge" id="formEdge">
 <input type="hidden" name="Artwork" id="formArtwork">
@@ -705,7 +747,10 @@ placeholder="Tell us what you want on the front and back, colors, wording, theme
 <span>Size</span>
 <strong id="sumSize">2.5"</strong>
 </div>
-
+<div class="summary-row">
+<span>Thickness</span>
+<strong id="sumThickness">3mm</strong>
+</div>
 <div class="summary-row">
 <span>Metal</span>
 <strong id="sumMetal">Antique Brass</strong>
